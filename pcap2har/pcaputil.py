@@ -3,7 +3,6 @@ Various small, useful functions which have no other home.
 '''
 
 import dpkt
-import resource
 import sys
 
 # Re-implemented here only because it's missing on AppEngine.
@@ -179,7 +178,4 @@ class FakeFlow(object):
         self.rev = rev
 
 def print_rusage():
-    rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
-    if sys.platform == 'darwin':
-        rss /= 1024  # Mac OSX returns rss in bytes, not KiB
-    print 'max_rss:', rss, 'KiB'
+    print 'max_rss: N/A KiB'
